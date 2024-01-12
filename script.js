@@ -69,9 +69,8 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
-  
 
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
@@ -233,12 +232,11 @@ btnClose.addEventListener('click', function (e) {
 });
 
 let sorted = false;
-btnSort.addEventListener('click', function(e) {
+btnSort.addEventListener('click', function (e) {
   e.preventDefault();
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
-  
-})
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -519,7 +517,7 @@ const overallBalance2 = accounts
   .reduce((acc, mov) => acc + mov, 0);
 console.log(overallBalance2)
 
-*/
+
 
 // Sort Method (Mutates arrays, sorts by strings)
 // Strings
@@ -556,3 +554,47 @@ movements.sort((a, b) => {
 console.log(movements);
 // this is the condensed version
 movements.sort((a, b) => b - a);
+
+
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+// Empty arrays + fill method
+const x = new Array(7);
+console.log(x);
+// console.log(x.map(() => 5));
+x.fill(1, 3, 5);
+x.fill(1);
+console.log(x);
+
+arr.fill(23, 2, 6);
+console.log(arr);
+
+// Array.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+// CHALLENGE: Create 100 random dice rolls
+const diceRoll = Array.from({ length: 100 }, cur =>
+  Math.floor(Math.random() * 6 + 1)
+);
+console.log(diceRoll);
+
+
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+  console.log(movementsUI);
+
+  // Alternate, less handy way
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+});
+
+*/
