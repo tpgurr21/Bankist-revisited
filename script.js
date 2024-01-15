@@ -606,6 +606,15 @@ const bankDepositSum = accounts
 
 console.log(bankDepositSum);
 
+// Trying to recreate above function with only flatMap and reduce. revisit this and try again later
+const bankDepositSums = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((sum, cur) => {
+    sum + cur, sum > 0 ? sum + cur : sum;
+    return sum;
+  });
+console.log(bankDepositSums);
+
 // 2.
 // const numDeposits1k = accounts
 //   .flatMap(acc => acc.movements)
@@ -620,5 +629,36 @@ const numDeposits1000 = accounts
 console.log(numDeposits1000);
 
 let a = 10;
-console.log(a++)
-console.log(a)
+// This does not change the value until you call it again later
+console.log(a++);
+// This does change the value immediately
+console.log(++a);
+console.log(a);
+
+// 3.
+const { deposits, withdrawals } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+      // return sums;
+      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+
+console.log(deposits, withdrawals);
+
+// 4.
+// this is a nice title -> This Is a Nice Title
+const convertTitleCase = function (title) {
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title.toLowerCase().split(' ').map();
+  return titleCase;
+};
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('this is a LONG title but n ot too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
