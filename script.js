@@ -52,7 +52,8 @@ const labelTimer = document.querySelector('.timer');
 
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
-const welcomeMessage = document.querySelector('.welcome-message');
+
+// const welcomeMessage = document.querySelector('.welcome-message');
 
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
@@ -159,7 +160,7 @@ btnLogin.addEventListener('click', function (e) {
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
-    welcomeMessage.style.opacity = 0;
+    // welcomeMessage.style.opacity = 0;
 
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
