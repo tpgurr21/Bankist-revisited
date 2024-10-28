@@ -52,6 +52,7 @@ const labelTimer = document.querySelector('.timer');
 
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
+const welcomeMessage = document.querySelector('.welcome-message');
 
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
@@ -158,6 +159,7 @@ btnLogin.addEventListener('click', function (e) {
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
+    welcomeMessage.style.opacity = 0;
 
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -744,16 +746,15 @@ console.log(dogs.some(dog => dog.recFood === dog.curFood));
 const checkEatingOkay = dog =>
   dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
 
-console.log(dogs.some(checkEatingOkay))
+console.log(dogs.some(checkEatingOkay));
 
-// 7. 
-console.log(dogs.filter(checkEatingOkay))
+// 7.
+console.log(dogs.filter(checkEatingOkay));
 
 // 8.
 
-const recFoodSort = dogs.slice().sort((a, b) => a.recFood - b.recFood)
-console.log(recFoodSort)
-
+const recFoodSort = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+console.log(recFoodSort);
 
 // });
 // console.log(dogs);
